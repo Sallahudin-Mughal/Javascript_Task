@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HASH TECHIE OFFICIAL</title>
+    <title>SignUp & Login</title>
     <link rel="stylesheet" href="style.css" />
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
@@ -15,24 +15,30 @@
       <div class="Form login-form">
         <h2>Login</h2>
         <p id="error-msg"></p>
-        <form action="#" name="Login-form-fill" onsubmit="Login()">
+        <form
+          action="#"
+          name="Login-form-fill"
+          onsubmit="Authentication.Login()"
+        >
           <div class="input-box">
             <i class="bx bxs-user"></i>
-            <label for="#">Username</label>
+            <label for="username">Username</label>
             <input
+              required
               type="text"
               placeholder="Enter Your Username*"
               name="Username"
-              id="username"
+              id="Log-user"
             />
           </div>
           <div class="input-box">
             <i class="bx bxs-envelope"></i>
             <input
-              type="text"
+              required
+              type="password"
               placeholder="Enter Your Password*"
               name="Password"
-              id="Password"
+              id="Log-pass"
             />
             <label for="#">Password</label>
           </div>
@@ -48,7 +54,7 @@
       </div>
       <div class="Form Register-form">
         <h2>Register</h2>
-        <form action="#" onsubmit="Signup()">
+        <form action="#" onsubmit="Authentication.Signup()">
           <div class="input-box">
             <i class="bx bxs-user"></i>
             <label for="#">Username</label>
@@ -61,6 +67,7 @@
           <div class="input-box">
             <i class="bx bxs-envelope"></i>
             <input
+              required
               type="email"
               placeholder="Enter Your Password*"
               id="rs-email"
@@ -70,7 +77,8 @@
           <div class="input-box">
             <i class="bx bxs-envelope"></i>
             <input
-              type="text"
+              required
+              type="password"
               placeholder="Enter Your Password*"
               id="rs-pass"
             />
@@ -88,5 +96,6 @@
       </div>
     </div>
     <script src="index.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </body>
 </html>

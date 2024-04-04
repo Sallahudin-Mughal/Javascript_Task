@@ -12,67 +12,114 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.min.css"
-    />
   </head>
   <body>
-    <div class="header"><h1>Product Table</h1></div>
-    <div class="action-btn">
-      <button onclick="showModal()" id="add-pro">
-        <i class="fa-solid fa-plus"></i> Add Product
-      </button>
-    </div>
+    <div class="container">
+      <div class="top-bar">
+        <div class="left">
+          <!-- <i class="fa-solid fa-bars"></i> -->
+          <h1>Products</h1>
+          <input type="text" class="search" placeholder="search here" />
+        </div>
+        <div class="right">
+          <button onclick="showModal()" id="add-pro">
+            <i class="fa-solid fa-plus"></i> Add Product
+          </button>
+          <i class="fa-solid fa-bell"></i>
+          <i class="fa-solid fa-gear"></i>
+        </div>
+      </div>
+      <div class="dashboard">
+        <div class="side-bar">
+          <ul class="side-list">
+            <li><i class="fa-solid fa-house"></i><a href="#">Home</a></li>
+            <li>
+              <i class="fa-solid fa-table-cells"></i><a href="#">Dashboard</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-chart-line"></i><a href="#">Analytics</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-sliders"></i>
+              <a href="#">Account Setting</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-wallet"></i>
+              <a href="#">My Wallet</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-rectangle-ad"></i>
+              <a href="#">Marketing</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-headset"></i>
+              <a href="#">Support</a>
+            </li>
+            <li>
+              <button onclick="logout()" class="logout-btn">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <a href="#">Logout</a>
+              </button>
+            </li>
+          </ul>
+        </div>
 
-    <div class="table-cont">
-      <table>
-        <thead>
-          <th>Product name</th>
-          <th>Buying Price</th>
-          <th>Sell Price</th>
-          <th>Action</th>
-        </thead>
-        <tbody id="table-body"></tbody>
-      </table>
-    </div>
-    <div class="modal" id="modal">
-      <i
-        class="fa-regular fa-circle-xmark close-btn"
-        onclick="Close_modal()"
-      ></i>
-      <h1>Add Product</h1>
-      <form action="">
-        <div class="input-box">
-          <input
-            id="prod-name"
-            type="text"
-            placeholder="Product Name"
-            required
-          />
+        <div class="main-content">
+          <div class="table-cont">
+            <table>
+              <thead>
+                <th class="first-heading">Id</th>
+                <th>Product name</th>
+                <th>Buying Price</th>
+                <th>Sell Price</th>
+                <th class="last-heading">Action</th>
+              </thead>
+              <tbody id="table-body"></tbody>
+            </table>
+          </div>
+          <div class="modal" id="modal">
+            <i
+              class="fa-regular fa-circle-xmark close-btn"
+              onclick="Close_modal()"
+            ></i>
+            <h1>Add Product</h1>
+            <form action="">
+              <div class="input-box">
+                <input
+                  id="prod-name"
+                  type="text"
+                  placeholder="Product Name"
+                  required
+                />
+              </div>
+              <div class="input-box">
+                <input
+                  id="Buy-price"
+                  type="text"
+                  placeholder="Buying price"
+                  required
+                />
+              </div>
+              <div class="input-box">
+                <input
+                  id="sell-price"
+                  type="text"
+                  placeholder="Selling Price"
+                  required
+                />
+              </div>
+              <div class="input-btn">
+                <button id="add-btn" onclick="addBtn()">Add</button>
+                <button id="update-btn" class="Update" disabled="disabled">
+                  Update
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
-        <div class="input-box">
-          <input
-            id="Buy-price"
-            type="text"
-            placeholder="Buying price"
-            required
-          />
-        </div>
-        <div class="input-box">
-          <input
-            id="sell-price"
-            type="text"
-            placeholder="Selling Price"
-            required
-          />
-        </div>
-        <div class="input-btn">
-          <button id="add-btn" onclick="addBtn()">Add</button>
-          <button id="update-btn" class="Update" disabled="disabled">Update</button>
-        </div>
-      </form>
+      </div>
     </div>
     <script src="curdoperations.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </body>
 </html>
